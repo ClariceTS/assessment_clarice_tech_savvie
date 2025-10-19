@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Clarice Tech-Savvies</title>
+<link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4f46e5',
+                        'secondary': '#8b5cf6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'antique olive';
+            color: black;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        section{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            padding: 100px 20vw
+        }
+
+        .white{
+            background: #f6f6fb;
+        }
+
+        
+        .teal {
+            background: teal;
+        }
+
+        .h1{
+            font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            font-size: 50px;
+            color: black;
+            background-color: #1ab188;
+            min-height: 100px;
+    
+        }
+
+.payment{
+    position: relative;
+    text-align: center;
+    background-color: rgb(174, 210, 241);
+}
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            background: turquoise;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .title{
+            font-size: 28px;
+            color: black;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            position: relative;
+            text-align: center;
+        }
+
+        .message{
+            color: black;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-group{
+            display: flex;
+            width: 100%;
+            gap: 6px;
+            overflow: hidden;
+        }
+
+        .form label{
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form label input {
+            width: 100%;
+            padding: 10px 10px 20px 10px;
+            outline: none;
+            border: none;
+            border-radius: none;
+        }
+
+        .form label input + span{
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: #24323d;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+
+        .form label input:placeholder-shown + span{
+            top: 15px;
+            font-size: 0.9em;
+        }
+
+        .form label input:focus + span,
+        .form label input:valid +span {
+            top: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .form label input:valid + span {
+            color: #1ab188;
+        }
+
+        .form label .icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #24323d;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9;
+        }
+
+        .submit{
+            border: none;
+            outline: none;
+            background: #1ab188;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transform: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .submit:hover{
+            background:#1ec79a;
+            transition:0.3s;
+        }
+
+/*live chat*/
+ /* Custom styles for better aesthetics and chat layout */
+        .p-4 md:p-8 {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .chat-container {
+            /* Full height on mobile devices, constrained height on desktop */
+            height: 60vh; 
+            min-height: 400px;
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 0.5rem 1rem;
+            border-radius: 1.25rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        /* Styling for the user's (outgoing) messages */
+        .outgoing {
+            background-color: #4f46e5;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 0.375rem;
+        }
+        /* Styling for other users' (incoming) messages */
+        .incoming {
+            background-color: #e5e7eb;
+            color: #1f2937;
+
+            align-self: flex-start;
+            border-bottom-left-radius: 0.375rem;
+        }
+        /* Hides the success message initially */
+        .simulated-payment-success {
+            display: none;
+        }
+
+        /*pictures*/
+        *{
+                box-sizing: border-box;
+            }
+
+            body{
+                background: black;
+            }
+
+        .h1{
+    font-family:'Times New Roman', Times, serif;
+            text-align: center;
+            font-size: 50px;
+            color: black;
+            background-color: #1ab188;
+            min-height: 100px;
+}
+            .gallery{
+                border: 1px solid #ccc;
+            }
+
+            .gallery img{
+                width: 100%;
+                height: auto;
+            }
+
+            .responsive{
+                padding: 0 6px;
+                float: left;
+                width: 25%;
+            }
+
+            @media only screen and (max-width: 500px) {
+                .responsive{
+                    width: 100%
+                    
+                }
+            }
+    </style>
+
+     <p class="h1">Clarice Tech-Savvies</p>
+    <section class="white">
+<h2>Are you a tech savvie in this modern world?</h2>
+<p>Do you keep up-to-date with today's leading tech?</p>
+<p>WELL this website is just for you!.Welcome to Clarice Tech-Savvies-a place to teach and offer the best tech service ever!</p>
+<p>Every month we host online classes with detailed lessons about different tech. From phones to laptops to HDMI cables.</p>
+<p>Along with the classes there are a range of tech worthy services offered.</p>
+<p> This sets the stage for our students to gain experienxe and embrace our tech world.</p>
+<h2>YES</h2><p>You heard right! Our students will have various opportunities with the monthly course they attend</p>
+<h3>And the best part?</h3><p>Our classes are all 49.99 USD each. Yes just 49.99 USD</p><p>For the month of November, our classes will be based on photography and Cameras</p>So what are you waiting for? fill out your details and head over to the payment page to secure your spot</p>
+<form autocomplete="off" class="form">
+
+    <p class="title">Register</p>
+    <p class="message">Signup now for our November PHOTOGRAPHY classes</p>
+    <div class="form-group">
+        
+        <label>
+            <input type="text" required>
+            <span>Firstname</span>
+            </label>
+
+            <label>
+            <input type="text" required>
+            <span>Lastname</span>
+            </label>
+        
+    </div>
+    <label>
+        <input type="text" required>
+        <span>Email</span>
+    </label>
+
+    <button class="submit">Submit</button>
+</form>
+</section>
+   <p class="payment">Find the payment gateway on the right and for any assistance feel free to ask our Savvie Live Chat Bot</p>
+<section class="teal">
+<h1>Oh hi,Are you here for our services?</h1><P>Our range of tech worthy services include the following:</P>
+<ol> Laptops free software installation and data transfers</ol>
+<ol>Mobile Devices ranging from Samsung to Apple, you name it,we'll fix it!</ol>
+<ol>Cameras:We sell a range of different cameras. Whether it's your first camera or your extra ,we've got you covered.</ol>
+<p>Maybe you're not looking to buy a camera just for 1 special event, that's why we offer to do it for you.</p>
+<p>Yes, WE ALSO DO EVENT PHOTOGRAPHY. Have a look at some of our best Work at the end</p>
+
+</section>
+
+<body class="p-4 md:p-8">
+
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Service Platform Demo</h1>
+        <p class="text-lg text-gray-500">Real-Time Chat & Payment Gateway Simulation</p>
+        <div id="user-info" class="text-xs text-gray-400 mt-2">
+
+            Status: <span id="auth-status" class="text-red-500">Loading...</span> | User ID: <span id="current-user-id"></span>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        
+        <!-- Chat Column: Takes up 2/3 width on desktop, full width on mobile -->
+        <section class="lg:col-span-2 bg-white shadow-xl rounded-2xl p-6 h-full">
+            <h2 class="text-2xl font-bold text-primary mb-4 border-b pb-2">Live Customer Support Chat</h2>
+            
+            <!-- Message Display Area -->
+            <div id="chat-messages" class="chat-container overflow-y-auto space-y-3 p-4 bg-gray-50 rounded-lg border 
+
+mb-4">
+                <div class="text-center text-sm text-gray-400 p-4">Loading messages...</div>
+            </div>
+
+            <!-- Message Input Area -->
+            <div class="flex">
+                <input type="text" id="message-input" placeholder="Type your message here..."
+                       class="flex-grow p-3 border border-gray-300 rounded-l-xl focus:ring-primary focus:border-primary">
+                <button id="send-button" onclick="sendMessage()"
+                        class="bg-primary hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-r-xl transition duration-200 shadow-md active:scale-95 disabled:opacity-50" disabled>
+
+                    Send
+                </button>
+            </div>
+        </section>
+
+        <!-- Payment Column: Takes up 1/3 width on desktop, full width on mobile -->
+        <section class="lg:col-span-1 bg-white shadow-xl rounded-2xl p-6 h-fit">
+            <h2 class="text-2xl font-bold text-secondary mb-4 border-b pb-2">Mock Payment Gateway</h2>
+
+            <div id="payment-form">
+                <p class="text-gray-600 mb-4">
+                    This is a **simulated** payment form demonstrating the front-end flow.
+                    In a real application, the data would be securely sent to your server
+                    to initiate a transaction with a 
+
+provider like **PayU**.
+                </p>
+
+                <div class="space-y-4">
+                    <div>
+                        <label for="amount" class="block text-sm font-medium text-gray-700">Amount to Pay (USD)</label>
+                        <input type="number" id="amount" value="49.99" readonly
+                               class="mt-1 block w-full rounded-lg border-gray-300 bg-gray-100 p-3 text-lg font-bold">
+                    </div>
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" placeholder="John Doe"
+                               class="mt-1 block w-full 
+
+rounded-lg border border-gray-300 p-2 focus:ring-secondary focus:border-secondary">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" placeholder="john@example.com"
+                               class="mt-1 block w-full rounded-lg border border-gray-300 p-2 focus:ring-secondary focus:border-secondary">
+                    </div>
+                </div>
+
+                <button onclick="simulatePayment()" id="pay-button"
+
+                        class="mt-6 w-full bg-secondary hover:bg-purple-700 text-white font-extrabold py-3 rounded-xl transition duration-200 shadow-lg active:scale-95 disabled:opacity-50">
+                    Pay Now (Simulated)
+                </button>
+                <p id="payment-error" class="text-red-500 text-sm mt-2 hidden"></p>
+            </div>
+
+            <!-- Payment Success Message -->
+            <div id="payment-success" class="simulated-payment-success text-center p-6 bg-green-50 border border-green-300 rounded-xl">
+                <svg class="mx-auto h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+
+d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 class="mt-2 text-xl font-semibold text-green-800">Payment Successful!</h3>
+                <p class="mt-1 text-sm text-green-700">
+                    Transaction ID: <span id="tx-id" class="font-mono text-sm bg-green-100 p-1 rounded">MOCK-12345678</span>
+                </p>
+                <p class="mt-3 text-xs text-gray-500">
+                    This result was simulated. A real integration would redirect you here after
+                    secure server-side processing by PayU or another provider.
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, onSnapshot, collection, query, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global Firebase variables provided by the environment
+        const appId = typeof __app_id !== 
+
+'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Firebase instances
+        let app, db, auth;
+        let userId = null;
+        // Public collection path for chat messages
+        const CHAT_COLLECTION_PATH = `artifacts/${appId}/public/data/chat_messages`;
+
+        // UI Element References
+        const chatMessagesEl = document.getElementById('chat-messages');
+
+        const messageInputEl = document.getElementById('message-input');
+        const sendButtonEl = document.getElementById('send-button');
+        const authStatusEl = document.getElementById('auth-status');
+        const currentUserIdEl = document.getElementById('current-user-id');
+        const paymentFormEl = document.getElementById('payment-form');
+        const paymentSuccessEl = document.getElementById('payment-success');
+        const payButtonEl = document.getElementById('pay-button');
+        const paymentErrorEl = document.getElementById('payment-error');
+
+        /**
+
+         * Converts a user ID to a short, readable hash for display.
+         * @param {string} fullId The full user ID string.
+         * @returns {string} The shortened ID wrapped in HTML for color coding.
+         */
+        function shortenId(fullId) {
+            if (!fullId) return "N/A";
+            // Simple hash function for consistent color assignment based on ID
+            let hash = 0;
+            for (let i = 0; i < fullId.length; i++) {
+                hash = fullId.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const colors = ['text-red-600', 'text-green-600', 'text-blue-600', 'text-yellow-600', 'text-purple-600', 'text-pink-600', 'text-indigo-600'];
+            const color = 
+
+colors[Math.abs(hash) % colors.length];
+            // Display full ID to comply with instructions, but use a shortened visual representation
+            return `<span class="${color}">${fullId}</span>`; 
+        }
+
+        /**
+         * Initializes Firebase and sets up authentication.
+         */
+        async function initializeFirebase() {
+            try {
+                setLogLevel('debug'); // Enable Firestore logging
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                
+
+                authStatusEl.textContent = 'Authenticating...';
+
+                // Sign in using the custom token, or fall back to anonymous sign-in
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Set up the listener for auth state changes
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        authStatusEl.textContent = 'Ready';
+
+                        authStatusEl.classList.remove('text-red-500');
+                        authStatusEl.classList.add('text-green-500');
+                        currentUserIdEl.innerHTML = shortenId(userId); // Display full, color-coded ID
+                        sendButtonEl.disabled = false;
+                        payButtonEl.disabled = false;
+                        listenForMessages();
+                    } else {
+                        console.error("Authentication failed or user signed out.");
+                        authStatusEl.textContent = 'Error';
+                        sendButtonEl.disabled = true;
+                        payButtonEl.disabled = true;
+                    }
+
+                });
+
+            } catch (error) {
+                console.error("Firebase initialization failed:", error);
+                authStatusEl.textContent = 'Error';
+            }
+        }
+
+        /**
+         * Sets up the real-time listener for chat messages from Firestore.
+         */
+        function listenForMessages() {
+            if (!db || !userId) return;
+
+            const q = collection(db, CHAT_COLLECTION_PATH);
+            
+            // Querying without orderBy to avoid index errors, we will sort in memory
+
+            const chatQuery = query(q);
+
+            onSnapshot(chatQuery, (snapshot) => {
+                let messages = [];
+                snapshot.forEach(doc => {
+                    messages.push({ id: doc.id, ...doc.data() });
+                });
+
+                // Sort messages locally by timestamp to ensure correct order
+                messages.sort((a, b) => (a.timestamp?.toMillis() || 0) - (b.timestamp?.toMillis() || 0));
+                
+                renderMessages(messages);
+            }, (error) => {
+                console.error("Error listening to messages:", error);
+                chatMessagesEl.innerHTML = 
+
+`<div class="text-center text-red-500 p-4">Error loading messages: ${error.message}</div>`;
+            });
+        }
+
+        /**
+         * Renders the chat messages to the UI.
+         * @param {Array<Object>} messages Array of message objects.
+         */
+        function renderMessages(messages) {
+            chatMessagesEl.innerHTML = '';
+            
+            if (messages.length === 0) {
+                chatMessagesEl.innerHTML = '<div class="text-center text-sm text-gray-400 p-4">Start the conversation! No messages yet.</div>';
+                return;
+
+            }
+
+            messages.forEach(msg => {
+                const isOutgoing = msg.senderId === userId;
+                
+                const wrapperDiv = document.createElement('div');
+                wrapperDiv.classList.add('flex', isOutgoing ? 'justify-end' : 'justify-start');
+
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message-bubble');
+                messageDiv.classList.add(isOutgoing ? 'outgoing' : 'incoming');
+
+                const senderSpan = 
+
+document.createElement('span');
+                senderSpan.classList.add('block', 'text-xs', 'mb-0', 'font-semibold');
+                senderSpan.innerHTML = isOutgoing ? 'You' : shortenId(msg.senderId);
+                senderSpan.classList.add(isOutgoing ? 'text-indigo-200' : 'text-gray-500');
+
+                const textP = document.createElement('p');
+                textP.classList.add('text-base', 'whitespace-pre-wrap');
+                textP.textContent = msg.text;
+
+                messageDiv.appendChild(senderSpan);
+                messageDiv.appendChild(textP);
+                wrapperDiv.appendChild(messageDiv);
+
+                chatMessagesEl.appendChild(wrapperDiv);
+            });
+
+            // Scroll to the latest message
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+        }
+
+        /**
+         * Sends a new message to the Firestore database.
+         */
+        window.sendMessage = async function() {
+            const messageText = messageInputEl.value.trim();
+            if (!messageText || !userId || !db) return;
+
+            try {
+
+                // Add message to the public collection
+                await addDoc(collection(db, CHAT_COLLECTION_PATH), {
+                    text: messageText,
+                    senderId: userId,
+                    timestamp: serverTimestamp(),
+                });
+                messageInputEl.value = '';
+                messageInputEl.focus();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                // Use a custom UI message box for error (not alert())
+                const errorMsg = document.createElement('div');
+                errorMsg.textContent = "Failed to send message.";
+                errorMsg.classList.add('p-2', 'bg-red-100', 'text-red-700', 'rounded-lg', 'mt-2');
+
+                chatMessagesEl.appendChild(errorMsg);
+                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+            }
+        };
+
+        // Event listener for sending message on Enter key press
+        messageInputEl.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !sendButtonEl.disabled) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // --- Mock Payment Logic ---
+
+        /**
+         * Simulates a payment transaction process.
+         */
+        window.simulatePayment = function() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!name || !email) {
+                paymentErrorEl.textContent = "Please fill in all required fields (Name and Email).";
+                paymentErrorEl.classList.remove('hidden');
+                return;
+            }
+
+
+            paymentErrorEl.classList.add('hidden');
+            payButtonEl.textContent = 'Processing...';
+            payButtonEl.disabled = true;
+
+            /* ************************************************************
+                * CRITICAL: REAL PAYMENT GATEWAY INTEGRATION POINT (E.G., PayU)
+                ************************************************************
+                In a production application, this client-side JavaScript would 
+                ONLY validate the input and then securely send this data to 
+                YOUR SERVER. Your server would 
+
+then:
+
+                1. Calculate a secure hash/signature using your private PayU key.
+                2. Redirect the user or make an API call to the PayU environment.
+                3. Receive a secure callback/webhook from PayU with the final status.
+                4. Update the user's order status in your secure database.
+                
+                Client-side code should NEVER handle private keys or secrets.
+                ************************************************************
+            */
+
+            // SIMULATION: Wait 2 seconds, then show the success state
+            setTimeout(() => {
+
+                paymentFormEl.style.display = 'none';
+                paymentSuccessEl.style.display = 'block';
+                payButtonEl.disabled = false; // Re-enable for subsequent payments, if needed
+            }, 2000);
+        };
+
+
+        // Start the application when the script loads
+        initializeFirebase();
+    </script>
+
+    //**pictures**//
+    <p class="h1">Our Best Work</p>
+        <div class="responsive">
+        <div class="gallery">
+            <a href="imgs/1.jpg" target="_blank"><img src="imgs/1.jpg"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/12.jpg" target="_blank"><img src="imgs/12.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/2.jpg" target="_blank"><img src="imgs/2.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/3.jpg" target="_blank"><img src="imgs/3.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/4.jpg" target="_blank"><img src="imgs/4.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/5.jpg" target="_blank"><img src="imgs/5.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/6.jpg" target="_blank"><img src="imgs/6.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/7.jpg" target="_blank"><img src="imgs/7.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/8.jpg" target="_blank"><img src="imgs/8.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/9.jpg" target="_blank"><img src="imgs/9.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/10.jpg" target="_blank"><img src="imgs/10.jpg" width="300" height="200"></a>
+        </div>
+</div>
+
+<div class="responsive">
+        <div class="gallery">
+            <a href="imgs/11.jpg" target="_blank"><img src="imgs/11.jpg" width="300" height="200"></a>
+        </div>
+</div>
+</body>
+</html>
